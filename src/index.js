@@ -4,10 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Application from './components/application';
+import Login from './components/login'
+import Register from './components/register';
+import Dashboard from './components/dashboard';
+import NotFound from './components/notfound';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Application />} >
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="dashboard">
+              <Route path=":id" element={<Dashboard />} />
+            </Route>
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
