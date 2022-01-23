@@ -31,7 +31,6 @@ class Application extends React.Component{
         let new_state = Object.assign({}, this.state);
         new_state = new_data;
         this.setState(new_state);
-        console.log(this.state)
     }
     
     render(){
@@ -41,7 +40,7 @@ class Application extends React.Component{
                 <div className="pagecontainer">
                     <Switch>
                         <Route exact path="/">
-                            <Home />
+                            <Home data={this.state.data} />
                         </Route>
                         <Route exact path="/login">
                             <Login data={this.state.data} />

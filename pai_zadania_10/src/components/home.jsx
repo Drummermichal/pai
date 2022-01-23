@@ -1,5 +1,7 @@
 import React from "react";
 
+import { history } from '../utilities';
+
 class Home extends React.Component{
     constructor(props){
         super(props);
