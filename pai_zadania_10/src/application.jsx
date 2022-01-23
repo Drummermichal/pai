@@ -15,17 +15,23 @@ class Application extends React.Component{
 
         this.state = {
             data: {
-                update_data_callback: null,
+                update_data_callback: this.update_data,
                 is_authorized: false,
-                accounts: []
+                accounts: [
+                    {
+                        username: "piqulsky",
+                        password: "pikulski"
+                    }
+                ]
             }
         }
     }
 
     update_data = (new_data) => {
-        const new_state = Object.assign({}, this.state);
-        new_state.data = new_data;
+        let new_state = Object.assign({}, this.state);
+        new_state = new_data;
         this.setState(new_state);
+        console.log(this.state)
     }
     
     render(){
@@ -38,10 +44,10 @@ class Application extends React.Component{
                             <Home />
                         </Route>
                         <Route exact path="/login">
-                            <Login />
+                            <Login data={this.state.data} />
                         </Route>
                         <Route exact path="/register">
-                            <Register />
+                            <Register data={this.state.data} />
                         </Route>
                         <ProtectedRoute data={this.state.data} path={["/dashboard", "/calculator", "/chat"]}>
                             <Navigation data={this.state.data} />
