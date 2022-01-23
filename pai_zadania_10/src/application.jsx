@@ -7,6 +7,7 @@ import Login from "./components/login";
 import Register from "./components/register";
 import Header from "./components/header";
 import ProtectedRoute from "./components/protectedroute";
+import Navigation from './components/navigation';
 
 class Application extends React.Component{
     constructor(){
@@ -42,9 +43,9 @@ class Application extends React.Component{
                         <Route exact path="/register">
                             <Register />
                         </Route>
-                        <Route exact path="/protected">
-                            <ProtectedRoute data={this.state.data} />
-                        </Route>
+                        <ProtectedRoute data={this.state.data} path={["/dashboard", "/calculator", "/chat"]}>
+                            <Navigation data={this.state.data} />
+                        </ProtectedRoute>
                     </Switch>
                 </div>
             </div>
