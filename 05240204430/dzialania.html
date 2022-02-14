@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Działania matematyczne</title>
+        <link rel="stylesheet" href="styl.css">
+    </head>
+    <body>
+        <div class="baner">
+            <div class="baner-first">
+                <img src="logo.jpg" alt="matematyka" height="100">
+            </div>
+            <div class="baner-second">
+                <h1>Pomocnik Matematyczny</h1>
+            </div>
+            <div class="baner-third">
+                <a href="dzialania.html"><h4>Działania</h4></a>
+            </div>
+            <div class="baner-fourth">
+                <a href="mnozenie.html"><h4>Tabliczka Mnożenia</h4></a>
+            </div>
+            <div class="left">
+                <h3>Proste działania</h3>
+                <label>liczba A: </label>
+                <input id="a" type="number"><br>
+                <label>liczba B: </label>
+                <input id="b" type="number"><br>
+                <button onclick="calculate('+')">+</button>
+                <button onclick="calculate('-')">-</button>
+                <button onclick="calculate('*')">*</button>
+                <button onclick="calculate('/')">/</button>
+                <button onclick="calculate('^')">A^B</button>
+                <div id="result"></div>
+            </div>
+            <div class="right">
+                <ul>
+                    <li>dodawanie</li>
+                    <li>odejmowanie</li>
+                    <li>mnożenie</li>
+                    <li>dzielenie</li>
+                    <li>potęgowanie</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <p>Autor: 05240204430</p>
+            </div>
+        </div>
+
+        <script>
+            function calculate(operation) {
+                let div = document.getElementById("result");
+                let a = document.getElementById("a");
+                let b = document.getElementById("b");
+                switch (operation) {
+                    case "+":
+                        div.innerText = "Wynik: " + (parseInt(a.value) + parseInt(b.value)).toString();
+                        break;
+                    case "-":
+                        div.innerText = "Wynik: " + (parseInt(a.value) - parseInt(b.value)).toString();
+                        break;
+                    case "*":
+                        div.innerText = "Wynik: " + (parseInt(a.value) * parseInt(b.value)).toString();
+                        break;
+                    case "/":
+                        div.innerText = "Wynik: " + (parseInt(a.value) / parseInt(b.value)).toString();
+                        break;
+                    case "^":
+                        div.innerText = "Wynik: " + (Math.pow(parseInt(a.value), parseInt(b.value))).toString();
+                        break;
+                
+                    default:
+                        div.innerText = "Błąd";
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>
