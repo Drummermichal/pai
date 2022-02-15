@@ -1,0 +1,4 @@
+1)SELECT matematycy.imie, matematycy.nazwisko FROM matematycy WHERE matematycy.rok_urodzenia > 1800
+2)SELECT matematycy.imie, matematycy.nazwisko FROM matematycy WHERE matematycy.liczba_publikacji > 5 && matematycy.liczba_publikacji < 20
+3)SELECT matematycy.liczba_publikacji FROM matematycy WHERE matematycy.rok_urodzenia > 1800 ORDER BY matematycy.liczba_publikacji DESC
+4)DROP TABLE typy
